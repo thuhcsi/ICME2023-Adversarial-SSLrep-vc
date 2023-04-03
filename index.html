@@ -1,0 +1,412 @@
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!DOCTYPE html>
+<html>
+	<style type="text/css">
+		#img_h{
+			display:none;
+		}
+		</style>
+	<head>
+		<title>ICME2023 Demo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Menu -->
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Adversarial Speaker Disentanglement Using Unannotated External Data for Self-supervised Representation Based Voice Conversion- <font color = #58c3c2> Demo</font></h1>
+							<font size = 5><p><i> Xintao Zhao, Shuai Wang, Yang Chao, Zhiyong Wu, Helen Meng</i></p></font>
+							
+							<br></br>
+							<section>
+								<h2><font size = 5 color= #58c3c2>ABSTRACT</font></h2>
+								<p>Nowadays, recognition-synthesis-based methods have been quite popular with voice conversion (VC). By introducing lin- guistics features with good disentangling characters extracted from an automatic speech recognition (ASR) model, the VC performance achieved considerable breakthroughs. Recently, self-supervised learning (SSL) methods trained with a large- scale unannotated speech corpus have been applied to down- stream tasks focusing on the content information, which is suitable for VC tasks. However, a huge amount of speaker information in SSL representations degrades timbre similar- ity and the quality of converted speech significantly. To ad- dress this problem, we proposed a high-similarity any-to- one voice conversion method with the input of SSL rep- resentations. We incorporated adversarial training mecha- nisms in the synthesis module using external unannotated cor- pora. Feed-forward transformer-based acoustic model and Hifi-GAN vocoder were used to generate the high-quality waveform. Two auxiliary discriminators were trained to dis- tinguish whether a sequence of mel-spectrograms has been converted by the acoustic model and whether a sequence of content embeddings contains speaker information from ex- ternal corpora. Experimental results show that our proposed method achieves comparable similarity and higher natural- ness than the supervised method, which needs a huge amount of annotated corpora for training and is applicable to improve similarity for VC methods with other SSL representations as input.
+
+							</section>
+							<!-- Text -->
+							    <section>
+								<a name="traditional"></a>
+							    	<h2><font size = 5 color= #58c3c2>Conversion Tasks</font></h2>
+							    	<!-- <p>(Section x.x in the paper)</p> -->
+							    	<p>Our goal is to converte the timbre to target speaker while preserve the fine-grained prosody information contaioned in source waveform, which lead to high naturalness.</p>
+									<p>No annotated data were used in the whole training steps.</p>
+							    	<ul class="12u 12u$(medium)">
+										<li><b><font style="font-variant: small-caps">Proposed</font></b> - the proposed adversarial discriminator method.</li>
+										<li><b><font style="font-variant: small-caps">Baseline</font></b> - the proposed method without Embedding Discriminator and Conversion Discriminator.</li>
+									</ul>
+									<p>Below are a few audios samples from the target CSMSC spkr.</p>
+									<audio id ="audio"  controls=""><source src="audios/target/0.wav" /><embed height="50" ></embed></audio>
+									<audio id ="audio"  controls=""><source src="audios/target/1.wav" /><embed height="50" ></embed></audio>
+									<audio id ="audio"  controls=""><source src="audios/target/2.wav" /><embed height="50" ></embed></audio>
+									<audio id ="audio"  controls=""><source src="audios/target/3.wav" /><embed height="50" ></embed></audio>
+									
+									<p>Below are a few demo audios.</p>
+									
+								
+									<h3><font size = 4 color= #58c3c2>Hubert Soft Unit experiment</font></h3>
+									<p>Proposed method and Baseline method using <b>Hubert Soft Unit</b> as SSL representations.</p>
+									<p></p>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													
+													<th><font color= #58c3c2>NO</font></th>
+													<th><font color= #58c3c2>Baseline</font></th>
+													<th><font color= #58c3c2>Proposed</font></th>
+													<th><font color= #58c3c2>CTC</font></th>
+									
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/0-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/0-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/0-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 1 transcript : <i><b>"Hello,所有女生，你们的魔鬼又来咯。Oh my god，这个颜色也太好看了吧。买它！买它！买它！"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/0-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<!-- <tr>
+													<td>2</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/1-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/1-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/1-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 2 transcript : <i><b>"花木兰最后一下防御塔并没有打出"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/1-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr> -->
+												<tr>
+													<td>2</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/2-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/2-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/2-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 2 transcript : <i><b>"欢迎雁南飞"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/2-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>3</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/3-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/3-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/3-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 3 transcript : <i><b>"对保障困难群众生活发挥了重要作用"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/3-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>4</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/4-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/4-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/4-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 4 transcript : <i><b>"平均每笔贷款约一万元"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/4-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>5</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/5-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/5-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/5-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 5 transcript : <i><b>"房产市场多宗交易停滞"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/5-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td>6</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/6-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/6-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/6-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 6 transcript : <i><b>"在彰显立法机关坚决落实税收法定原则决定的同时"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertSoft/6-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+									
+									<h3><font size = 4 color= #58c3c2>Convect Features experiment</font></h3>
+									<p>Proposed method and Baseline method using <b>Convect Feature</b> as SSL representations.</p>
+									<p></p>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													
+													<th><font color= #58c3c2>NO</font></th>
+													<th><font color= #58c3c2>Baseline</font></th>
+													<th><font color= #58c3c2>Proposed</font></th>
+													<th><font color= #58c3c2>CTC</font></th>
+									
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/0-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/0-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/0-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 1 transcript : <i><b>"于是我决定就来谈谈种族问题"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/0-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<!-- <tr>
+													<td>2</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/1-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/1-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/1-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 2 transcript : <i><b>"花木兰最后一下防御塔并没有打出"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/1-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr> -->
+												<tr>
+													<td>2</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/2-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/2-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/2-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 2 transcript : <i><b>"其最近三年营收入年均复合增长超过百分之一"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/2-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>3</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/3-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/3-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/3-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 3 transcript : <i><b>"近两年同比增长百分之一点六和百分之七点二"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/3-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>4</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/4-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/4-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/4-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 4 transcript : <i><b>"对保障困难群众生活发挥了重要作用"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/4-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>5</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/5-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/5-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/5-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 5 transcript : <i><b>"房产市场多宗交易停滞"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/5-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td>6</td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/6-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/6-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/6-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 6 transcript : <i><b>"切实维护消费者合法权益"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/Convect/6-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+									<h3><font size = 4 color= #58c3c2>Hubert Raw experiment</font></h3>
+									<p>Proposed method and Baseline method using <b>Hubert Raw</b> as SSL representations.</p>
+									<p></p>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													
+													<th><font color= #58c3c2>NO</font></th>
+													<th><font color= #58c3c2>Baseline</font></th>
+													<th><font color= #58c3c2>Proposed</font></th>
+													<th><font color= #58c3c2>CTC</font></th>
+									
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/0-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/0-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/0-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 1 transcript : <i><b>"Hello！所有女生，你们的魔鬼又来咯。Oh my god，这个颜色也太好看了吧。买它！买它！买它！"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/0-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<!-- <tr>
+													<td>2</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/1-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/1-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/1-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 2 transcript : <i><b>"花木兰最后一下防御塔并没有打出"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/1-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr> -->
+												<tr>
+													<td>2</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/2-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/2-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/2-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 2 transcript : <i><b>"黄先生，你们——之前根本不认识吧"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/2-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>3</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/3-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/3-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/3-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 3 transcript : <i><b>"其他风险还包括运营风险渗透市场风险等"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/3-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>4</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/4-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/4-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/4-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 4 transcript : <i><b>"实际上 从整体一线市场看"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/4-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+												<tr>
+													<td>5</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/5-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/5-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/5-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 5 transcript : <i><b>"这一代人属于二战老人"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/5-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td>6</td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/6-base.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/6-p.wav" /><embed height="50" ></embed></audio></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/6-ctc.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+												
+												<tr>
+													<td align="" colspan="3">Source 6 transcript : <i><b>"但是大多数老人还是倾向高服务质量的品牌社区"</b></i></td>
+													<td><audio id ="audio"  controls=""><source src="audios/HubertRaw/6-gt.wav" /><embed height="50" ></embed></audio></td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+
+									<a href="#" class="button special">Back to Top</a>
+									<a href="#traditional" class="button special">Back to Section Start</a>
+									<br></br><br></br>
+								</section>
+								
+								
+						
+								
+								
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script type="text/javascript">
+				function Buckinghide(){
+					
+					var obu = document.getElementById("h_button")
+					var odiv=document.getElementById("img_h");
+					
+					if(odiv.style.display=="none"){
+       					odiv.style.display="block";
+      					obt.value="隐藏模块";
+   					 }
+					else{
+					odiv.style.display="none";
+					obt.value="显示模块";
+					}
+					
+				}
+			
+			</script>		  
+
+	</body>
+</html>
